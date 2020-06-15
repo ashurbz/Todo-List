@@ -22,7 +22,7 @@ module.exports.home = async function(req, res) {
       console.log("unable to fetch data");
       return res.redirect("/");
     }
-    //console.log("todos", todos);
+    
     return res.render("index", {todos, month});
   });
 };
@@ -38,7 +38,7 @@ module.exports.addTodo = function(req, res) {
     return res.redirect("/");
   });
 };
-
+//  deleting the task
 module.exports.deleteTodo = function(req, res) {
   console.log(req.body);
   Todo.deleteMany({_id:{$in:req.body.id}}, function(err, todo) {
